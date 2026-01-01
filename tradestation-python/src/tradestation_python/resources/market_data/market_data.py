@@ -62,5 +62,8 @@ class MarketData(SyncAPIResource):
             params["sessiontemplate"] = sessiontemplate.value
 
         return self._client._make_request(
-            "GET", f"marketdata/barcharts/{symbol}", params=params, response_model=BarsResponse
+            "GET",
+            f"marketdata/barcharts/{symbol}",
+            params=params,
+            response_model=BarsResponse,
         )

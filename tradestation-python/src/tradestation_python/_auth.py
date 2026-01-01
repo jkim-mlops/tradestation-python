@@ -211,10 +211,8 @@ class OAuth2PasswordBearer(SyncAuthClient):
 class TradeStationAuth(Auth):
     _token_info: Optional[TokenInfo]
 
-    def __init__(
-        self, oauth_client: Optional[OAuth2PasswordBearer] = None, buffer_seconds: int = 180
-    ) -> None:
-        self.oauth_client = oauth_client or OAuth2PasswordBearer()
+    def __init__(self, buffer_seconds: int = 180) -> None:
+        self.oauth_client = OAuth2PasswordBearer()
         self.buffer_seconds = buffer_seconds
         self._token_info = None
 

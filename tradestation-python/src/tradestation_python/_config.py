@@ -10,7 +10,9 @@ from .types.responses import OpenID
 
 
 class APISettings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_prefix="TS_API_", extra="allow")
+    model_config = SettingsConfigDict(
+        env_file=".env", env_prefix="TS_API_", extra="allow"
+    )
 
     base_url: str = "https://sim-api.tradestation.com/v3"
     api_key: Optional[str] = None
@@ -19,7 +21,9 @@ class APISettings(BaseSettings):
 
 
 class AuthSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_prefix="TS_AUTH_", extra="allow")
+    model_config = SettingsConfigDict(
+        env_file=".env", env_prefix="TS_AUTH_", extra="allow"
+    )
 
     base_url: str = "https://signin.tradestation.com"
     audience: str = "https://api.tradestation.com"

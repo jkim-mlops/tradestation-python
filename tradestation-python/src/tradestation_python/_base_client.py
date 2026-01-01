@@ -66,7 +66,9 @@ class SyncAuthClient(BaseAuthClient):
         if headers:
             request_kwargs["headers"] = headers
 
-        response = self.client.request(method, url, follow_redirects=True, **request_kwargs)
+        response = self.client.request(
+            method, url, follow_redirects=True, **request_kwargs
+        )
         response.raise_for_status()
 
         return response_model.model_validate(response.json())
@@ -111,7 +113,10 @@ class SyncAPIClient(BaseAPIClient):
     def __init__(self, *args: Any, **kwargs: Any) -> None:  # noqa: ANN401
         super().__init__(*args, **kwargs)
         self.client = httpx.Client(
-            base_url=self.base_url, headers=self.headers, auth=self.auth, timeout=self.timeout
+            base_url=self.base_url,
+            headers=self.headers,
+            auth=self.auth,
+            timeout=self.timeout,
         )
 
     def _make_request(

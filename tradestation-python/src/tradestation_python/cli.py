@@ -4,7 +4,9 @@ from tradestation_python import __version__
 
 
 def cli(args: Optional[Sequence[str]] = None) -> None:
-    p = ArgumentParser(description="TradeStation Python Client SDK.", conflict_handler="resolve")
+    p = ArgumentParser(
+        description="TradeStation Python Client SDK.", conflict_handler="resolve"
+    )
     p.add_argument(
         "-V",
         "--version",
