@@ -1,0 +1,20 @@
+version: '3'
+
+vars:
+  VERSION: '0.1.0'
+
+tasks:
+  build:
+    desc: Build the conda package
+    cmds:
+      - VERSION={{.VERSION}} conda build conda.recipe/
+
+  install:
+    desc: Install the package in editable mode with pip
+    cmds:
+      - SETUPTOOLS_SCM_PRETEND_VERSION={{.VERSION}} pip install -e .
+
+  upload:
+    desc: Upload the conda package to anaconda.org. Login first with `anaconda login`. 
+    cmds:
+      - anaconda upload ~/miniconda3/envs/ts-py/conda-bld/noarch/tradestation-python-{{.VERSION}}-py_0.conda

@@ -1,0 +1,8 @@
+{
+    "conventionalCommits.scopes": [
+        "tradestation-python",
+        "example",
+        ".vscode",
+        "README.md"
+    ]
+}
