@@ -68,10 +68,10 @@ include = [
 
 [tool.hatch.version]
 source = "vcs"
-root = ".."
 
 [tool.setuptools_scm]
-root = ".."
+# No search_parent_directories - allows SETUPTOOLS_SCM_PRETEND_VERSION to work
+fallback_version = "0.0.0"
 
 [tool.mypy]
 disallow_untyped_defs = true
