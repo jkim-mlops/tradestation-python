@@ -7,16 +7,13 @@ package:
   version: {{ version }}
 
 source:
-  path: ..
-
+  path: ../..
+  
 build:
-  # If the installation is complex, or different between Unix and Windows, use
-  # separate bld.bat and build.sh files instead of this key.  Add the line
-  # "skip: True  # [py<35]" (for example) to limit to Python 3.5 and newer, or
-  # "skip: True  # [not win]" to limit to Windows.
-  script: {{ PYTHON }} -m pip install --no-build-isolation --no-deps --ignore-installed -vv .
   noarch: python
   number: 0
+  script_env:
+    - SETUPTOOLS_SCM_PRETEND_VERSION
   entry_points:
     {% for name, reference in project['scripts'].items() %}
     - {{ name }} = {{ reference }}
@@ -43,13 +40,13 @@ test:
   imports:
     - tradestation_python
   source_files:
-    - tests
+    - tradestation-python/tests
   requires:
     {% for dep in project['optional-dependencies']['test'] %}
     - {{ dep.lower() }}
     {% endfor %}
   commands:
-    - pytest
+    - pytest tradestation-python/tests
     {% for name in project['scripts'] %}
     - {{ name }}
     {% endfor %}
@@ -59,4 +56,4 @@ about:
   home: https://github.com/jkim-mlops/tradestation-python
   summary: TradeStation Python Client SDK.
   license: {{ pyproject.get('license') }}
-  license_file: LICENSE
+  license_file: tradestation-python/LICENSE
