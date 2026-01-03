@@ -19,7 +19,7 @@
 
     ```python
     ts = TradeStation()
-    print(ts.auth.oauth_client.refresh_token)
+    print(ts.tradestation_auth.oauth_client.refresh_token)
     ```
 
     ```bash
