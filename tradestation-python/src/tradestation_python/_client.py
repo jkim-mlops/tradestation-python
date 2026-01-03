@@ -30,7 +30,6 @@ class TradeStation(SyncAPIClient):
         if retries is None:
             retries = settings.retries
 
-        self._tradestation_auth = auth
         super().__init__(
             base_url=base_url,
             api_key=api_key,
@@ -38,6 +37,7 @@ class TradeStation(SyncAPIClient):
             timeout=timeout,
             retries=retries,
         )
+        self._tradestation_auth = auth
 
     @cached_property
     def brokerage(self) -> Brokerage:
@@ -52,7 +52,7 @@ class TradeStation(SyncAPIClient):
         return OrderExecution(self)
 
     @property
-    def auth(self) -> TradeStationAuth:
+    def tradestation_auth(self) -> TradeStationAuth:
         """Return the TradeStationAuth instance."""
         if not isinstance(self._tradestation_auth, TradeStationAuth):
             raise TypeError("Auth must be an instance of TradeStationAuth")
