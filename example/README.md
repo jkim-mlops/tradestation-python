@@ -2,7 +2,7 @@
 
 1. At a minimum, you need the client id and client secret environment variables set. I recommend you store the credentials in a `.env` file.
 
-    ```
+    ```bash
     TS_AUTH_CLIENT_ID=<your-client-id>
     TS_AUTH_CLIENT_SECRET=<your-client-secret>
     ```
@@ -22,7 +22,7 @@
     print(ts.auth.oauth_client.refresh_token)
     ```
 
-    ```
+    ```bash
     TS_AUTH_CLIENT_ID=<your-client-id>
     TS_AUTH_CLIENT_SECRET=<your-client-secret>
     TS_AUTH_REFRESH_TOKEN=<your-refresh-token>

@@ -55,5 +55,5 @@ test:
 about:
   home: https://github.com/jkim-mlops/tradestation-python
   summary: TradeStation Python Client SDK.
-  license: {{ pyproject.get('license') }}
+  license: MIT
   license_file: tradestation-python/LICENSE
